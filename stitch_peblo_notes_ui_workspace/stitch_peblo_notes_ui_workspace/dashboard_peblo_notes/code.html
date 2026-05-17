@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Peblo Notes - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "tertiary-fixed": "#acedff",
+                            "secondary-fixed-dim": "#ffb0cd",
+                            "on-surface-variant": "#cbc3d7",
+                            "on-tertiary": "#003640",
+                            "on-secondary-fixed-variant": "#8c0053",
+                            "tertiary": "#4cd7f6",
+                            "inverse-surface": "#e7e0ed",
+                            "surface-dim": "#15121b",
+                            "secondary": "#ffb0cd",
+                            "error": "#ffb4ab",
+                            "on-background": "#e7e0ed",
+                            "secondary-fixed": "#ffd9e4",
+                            "primary-container": "#a078ff",
+                            "on-primary-container": "#340080",
+                            "tertiary-container": "#009eb9",
+                            "on-primary-fixed-variant": "#5516be",
+                            "background": "#15121b",
+                            "on-surface": "#e7e0ed",
+                            "surface-container": "#211e27",
+                            "primary": "#d0bcff",
+                            "on-tertiary-fixed": "#001f26",
+                            "on-secondary": "#640039",
+                            "primary-fixed": "#e9ddff",
+                            "surface-variant": "#37333d",
+                            "inverse-primary": "#6d3bd7",
+                            "surface-container-low": "#1d1a23",
+                            "on-primary": "#3c0091",
+                            "surface-container-highest": "#37333d",
+                            "surface": "#15121b",
+                            "secondary-container": "#aa0266",
+                            "surface-container-lowest": "#0f0d15",
+                            "on-error": "#690005",
+                            "surface-bright": "#3b3742",
+                            "primary-fixed-dim": "#d0bcff",
+                            "surface-tint": "#d0bcff",
+                            "outline": "#958ea0",
+                            "surface-container-high": "#2c2832",
+                            "outline-variant": "#494454",
+                            "tertiary-fixed-dim": "#4cd7f6",
+                            "error-container": "#93000a",
+                            "on-secondary-container": "#ffbad3",
+                            "on-tertiary-container": "#002f38",
+                            "on-error-container": "#ffdad6",
+                            "on-secondary-fixed": "#3e0022",
+                            "on-primary-fixed": "#23005c",
+                            "inverse-on-surface": "#322f39",
+                            "on-tertiary-fixed-variant": "#004e5c"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                    },
+                    "spacing": {
+                            "base": "4px",
+                            "sm": "0.5rem",
+                            "container_max": "1200px",
+                            "lg": "1.5rem",
+                            "xl": "2.5rem",
+                            "md": "1rem",
+                            "xs": "0.25rem",
+                            "sidebar_width": "260px"
+                    },
+                    "fontFamily": {
+                            "h1-mobile": [
+                                    "Inter"
+                            ],
+                            "body-sm": [
+                                    "Inter"
+                            ],
+                            "body-lg": [
+                                    "Inter"
+                            ],
+                            "h1": [
+                                    "Inter"
+                            ],
+                            "label-sm": [
+                                    "Inter"
+                            ],
+                            "display": [
+                                    "Inter"
+                            ],
+                            "h2": [
+                                    "Inter"
+                            ],
+                            "h3": [
+                                    "Inter"
+                            ],
+                            "mono": [
+                                    "JetBrains Mono"
+                            ],
+                            "label-md": [
+                                    "Inter"
+                            ],
+                            "body-md": [
+                                    "Inter"
+                            ]
+                    },
+                    "fontSize": {
+                            "h1-mobile": [
+                                    "24px",
+                                    {
+                                            "lineHeight": "32px",
+                                            "letterSpacing": "-0.01em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "body-sm": [
+                                    "12px",
+                                    {
+                                            "lineHeight": "16px",
+                                            "letterSpacing": "0em",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "body-lg": [
+                                    "16px",
+                                    {
+                                            "lineHeight": "24px",
+                                            "letterSpacing": "0em",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "h1": [
+                                    "32px",
+                                    {
+                                            "lineHeight": "40px",
+                                            "letterSpacing": "-0.02em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "label-sm": [
+                                    "12px",
+                                    {
+                                            "lineHeight": "16px",
+                                            "letterSpacing": "0.02em",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "display": [
+                                    "48px",
+                                    {
+                                            "lineHeight": "56px",
+                                            "letterSpacing": "-0.02em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "h2": [
+                                    "24px",
+                                    {
+                                            "lineHeight": "32px",
+                                            "letterSpacing": "-0.01em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "h3": [
+                                    "18px",
+                                    {
+                                            "lineHeight": "26px",
+                                            "letterSpacing": "0em",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "mono": [
+                                    "13px",
+                                    {
+                                            "lineHeight": "20px",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "label-md": [
+                                    "14px",
+                                    {
+                                            "lineHeight": "20px",
+                                            "letterSpacing": "0.01em",
+                                            "fontWeight": "500"
+                                    }
+                            ],
+                            "body-md": [
+                                    "14px",
+                                    {
+                                            "lineHeight": "20px",
+                                            "letterSpacing": "0em",
+                                            "fontWeight": "400"
+                                    }
+                            ]
+                    }
+            },
+                },
+            }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #37333d;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #494454;
+        }
+        
+        /* Bar chart animation simulation */
+        .bar-height-1 { height: 40%; }
+        .bar-height-2 { height: 65%; }
+        .bar-height-3 { height: 30%; }
+        .bar-height-4 { height: 85%; }
+        .bar-height-5 { height: 50%; }
+        .bar-height-6 { height: 20%; }
+        .bar-height-7 { height: 10%; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-hidden selection:bg-primary/30 selection:text-primary-fixed">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<nav class="hidden md:flex bg-surface-container-low border-r border-outline-variant/20 fixed left-0 top-0 h-full w-sidebar_width flex-col h-full py-lg px-md z-40">
+<div class="flex flex-col flex-1">
+<!-- Header -->
+<div class="mb-xl flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold">
+                        P
+                    </div>
+<div>
+<h1 class="font-h2 text-h2 font-black text-primary">Peblo Notes</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">AI Workspace</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="mb-lg w-full bg-gradient-to-r from-primary to-inverse-primary text-on-primary font-label-md text-label-md py-2 px-4 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                    New Note
+                </button>
+<!-- Navigation Tabs -->
+<ul class="flex flex-col gap-1 flex-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 bg-primary/10 text-primary border-l-2 border-primary rounded-r-lg font-label-md text-label-md active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                            Dashboard
+                        </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 hover:bg-surface-container-high transition-colors duration-200 rounded-lg font-label-md text-label-md active:scale-95 transition-transform border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined">description</span>
+                            All Notes
+                        </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 hover:bg-surface-container-high transition-colors duration-200 rounded-lg font-label-md text-label-md active:scale-95 transition-transform border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined">search</span>
+                            Search
+                        </a>
+</li>
+</ul>
+<!-- Footer Tabs -->
+<ul class="flex flex-col gap-1 mt-auto border-t border-outline-variant/20 pt-4">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 hover:bg-surface-container-high transition-colors duration-200 rounded-lg font-label-md text-label-md active:scale-95 transition-transform border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined">settings</span>
+                            Settings
+                        </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 hover:bg-surface-container-high transition-colors duration-200 rounded-lg font-label-md text-label-md active:scale-95 transition-transform border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+                            Help
+                        </a>
+</li>
+<!-- User Profile -->
+<li class="mt-2">
+<div class="flex items-center gap-3 px-4 py-2 rounded-lg bg-surface-container-highest/30">
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant/50 object-cover" data-alt="A close-up portrait of a professional individual in a minimalist studio setting. The lighting is soft and flattering, creating a high-end, clean aesthetic consistent with a modern SaaS dark mode profile image. The background is a subtle, deep ink tone to maintain focus on the subject. The overall mood is approachable yet authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4ATyRJIuF5fcHmRn5IQYmE_CYzC0e-76hWoQ2UiToPZ5ji7u6A_LdCwus9WLCak0ubcWdtG5X3h6TQkgeCooGbo7Clrs9i6nvnd8Df-JNerxfH2w8F1zytPDbGq8ZGXA22-Y9_CZMdM9mVtxEgVeu4LNIdR-jNGn37B3lNyQtipub_PQ2prdN0VtCpDDznBoocx-Mpb5DELeg8ys7K627GmGw3WmMBGReqKmEIZQVwthwW1HV0hrs2miglilwNi6krwaltUzXPI5h"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Alex Mercer</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pro Plan</span>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-sidebar_width h-full overflow-y-auto custom-scrollbar bg-background">
+<!-- Mobile TopBar (Placeholder for when side nav is hidden) -->
+<div class="md:hidden flex items-center justify-between p-4 bg-surface-container-low border-b border-outline-variant/20 sticky top-0 z-30 backdrop-blur-xl">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-xs">P</div>
+<span class="font-h3 text-h3 font-bold text-primary">Peblo Notes</span>
+</div>
+<button class="text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="max-w-container_max mx-auto p-4 md:p-lg lg:p-xl flex flex-col gap-xl">
+<!-- Page Header -->
+<header class="flex flex-col gap-1">
+<h2 class="font-h1 text-h1 font-bold text-on-surface">Good to see you, Alex 👋</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Here's what's happening with your workspace.</p>
+</header>
+<!-- Stats Row -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container rounded-xl p-4 md:p-6 border border-outline-variant/10 relative overflow-hidden group hover:border-outline-variant/30 transition-colors duration-300 hover:-translate-y-[1px]">
+<div class="flex flex-col gap-2 relative z-10">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Notes</span>
+<span class="font-display text-display font-bold text-on-surface group-hover:text-primary transition-colors">128</span>
+</div>
+<span class="material-symbols-outlined absolute -top-4 -right-4 text-[80px] text-on-surface-variant/5 group-hover:text-primary/10 transition-colors duration-300 pointer-events-none" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container rounded-xl p-4 md:p-6 border border-outline-variant/10 relative overflow-hidden group hover:border-outline-variant/30 transition-colors duration-300 hover:-translate-y-[1px]">
+<div class="flex flex-col gap-2 relative z-10">
+<span class="font-label-md text-label-md text-on-surface-variant">AI Generations</span>
+<span class="font-display text-display font-bold text-on-surface group-hover:text-primary transition-colors">45</span>
+</div>
+<span class="material-symbols-outlined absolute -top-4 -right-4 text-[80px] text-on-surface-variant/5 group-hover:text-primary/10 transition-colors duration-300 pointer-events-none" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container rounded-xl p-4 md:p-6 border border-outline-variant/10 relative overflow-hidden group hover:border-outline-variant/30 transition-colors duration-300 hover:-translate-y-[1px]">
+<div class="flex flex-col gap-2 relative z-10">
+<span class="font-label-md text-label-md text-on-surface-variant">Public Notes</span>
+<span class="font-display text-display font-bold text-on-surface group-hover:text-primary transition-colors">12</span>
+</div>
+<span class="material-symbols-outlined absolute -top-4 -right-4 text-[80px] text-on-surface-variant/5 group-hover:text-primary/10 transition-colors duration-300 pointer-events-none" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface-container rounded-xl p-4 md:p-6 border border-outline-variant/10 relative overflow-hidden group hover:border-outline-variant/30 transition-colors duration-300 hover:-translate-y-[1px]">
+<div class="flex flex-col gap-2 relative z-10">
+<span class="font-label-md text-label-md text-on-surface-variant">This Week</span>
+<span class="font-display text-display font-bold text-on-surface group-hover:text-primary transition-colors">+8</span>
+</div>
+<span class="material-symbols-outlined absolute -top-4 -right-4 text-[80px] text-on-surface-variant/5 group-hover:text-primary/10 transition-colors duration-300 pointer-events-none" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+</section>
+<!-- Main Grid Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- Left Column (Activity & Tags) -->
+<div class="lg:col-span-1 flex flex-col gap-xl">
+<!-- Weekly Activity -->
+<div class="bg-surface-container rounded-xl p-6 border border-outline-variant/10 flex flex-col gap-4">
+<h3 class="font-h3 text-h3 font-semibold text-on-surface">Weekly Activity</h3>
+<div class="h-40 flex items-end justify-between gap-2 mt-4">
+<div class="w-full flex flex-col justify-end items-center gap-2 group">
+<div class="w-full bg-primary/20 rounded-t-sm group-hover:bg-primary/40 transition-colors bar-height-1"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">M</span>
+</div>
+<div class="w-full flex flex-col justify-end items-center gap-2 group">
+<div class="w-full bg-primary/20 rounded-t-sm group-hover:bg-primary/40 transition-colors bar-height-2"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">T</span>
+</div>
+<div class="w-full flex flex-col justify-end items-center gap-2 group">
+<div class="w-full bg-primary/20 rounded-t-sm group-hover:bg-primary/40 transition-colors bar-height-3"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">W</span>
+</div>
+<div class="w-full flex flex-col justify-end items-center gap-2 group">
+<div class="w-full bg-primary/60 rounded-t-sm group-hover:bg-primary transition-colors bar-height-4 relative">
+<!-- Tooltip placeholder -->
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-body-sm text-body-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">14</div>
+</div>
+<span class="font-body-sm text-body-sm text-primary">T</span>
+</div>
+<div class="w-full flex flex-col justify-end items-center gap-2 group">
+<div class="w-full bg-primary/20 rounded-t-sm group-hover:bg-primary/40 transition-colors bar-height-5"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">F</span>
+</div>
+<div class="w-full flex flex-col justify-end items-center gap-2 group">
+<div class="w-full bg-primary/10 rounded-t-sm group-hover:bg-primary/30 transition-colors bar-height-6"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">S</span>
+</div>
+<div class="w-full flex flex-col justify-end items-center gap-2 group">
+<div class="w-full bg-primary/10 rounded-t-sm group-hover:bg-primary/30 transition-colors bar-height-7"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">S</span>
+</div>
+</div>
+</div>
+<!-- Top Tags -->
+<div class="bg-surface-container rounded-xl p-6 border border-outline-variant/10 flex flex-col gap-4">
+<h3 class="font-h3 text-h3 font-semibold text-on-surface">Top Tags</h3>
+<div class="flex flex-wrap gap-2">
+<a class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full font-label-sm text-label-sm hover:bg-primary/20 transition-colors border border-primary/20" href="#">
+                                    #design
+                                    <span class="bg-primary/20 px-1.5 py-0.5 rounded text-[10px] leading-none">24</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full font-label-sm text-label-sm hover:bg-primary/20 transition-colors border border-primary/20" href="#">
+                                    #engineering
+                                    <span class="bg-primary/20 px-1.5 py-0.5 rounded text-[10px] leading-none">18</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full font-label-sm text-label-sm hover:bg-primary/20 transition-colors border border-primary/20" href="#">
+                                    #meetings
+                                    <span class="bg-primary/20 px-1.5 py-0.5 rounded text-[10px] leading-none">12</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full font-label-sm text-label-sm hover:bg-primary/20 transition-colors border border-primary/20" href="#">
+                                    #ideas
+                                    <span class="bg-primary/20 px-1.5 py-0.5 rounded text-[10px] leading-none">9</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-surface-variant text-on-surface-variant px-3 py-1.5 rounded-full font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors border border-outline-variant/20" href="#">
+                                    View All
+                                </a>
+</div>
+</div>
+</div>
+<!-- Right Column (Recently Edited Grid) -->
+<div class="lg:col-span-2 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="font-h3 text-h3 font-semibold text-on-surface">Recently Edited</h3>
+<a class="text-primary font-label-md text-label-md hover:underline" href="#">View All Notes</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Note Card 1 -->
+<a class="block bg-surface-container rounded-xl p-5 border border-outline-variant/10 hover:border-primary/50 hover:bg-surface-container-high transition-all duration-200 group hover:-translate-y-[1px] relative overflow-hidden" href="#">
+<!-- AI indicator left border -->
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-secondary-container rounded-l-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-3">
+<h4 class="font-h3 text-h3 font-medium text-on-surface line-clamp-1 group-hover:text-primary transition-colors">Q3 Roadmap Planning</h4>
+<span class="material-symbols-outlined text-secondary-fixed-dim text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4 h-[48px]">
+                                    Drafting the initial objectives for Q3. Key focus areas include expanding the AI capabilities in the editor and improving mobile responsive layouts for the dashboard. Need to sync with engineering next Tuesday.
+                                </p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                        2 hours ago
+                                    </span>
+<div class="flex gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+</div>
+</div>
+</a>
+<!-- Note Card 2 -->
+<a class="block bg-surface-container rounded-xl p-5 border border-outline-variant/10 hover:border-outline-variant/50 hover:bg-surface-container-high transition-all duration-200 group hover:-translate-y-[1px]" href="#">
+<div class="flex justify-between items-start mb-3">
+<h4 class="font-h3 text-h3 font-medium text-on-surface line-clamp-1 group-hover:text-primary transition-colors">Design System Audit</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4 h-[48px]">
+                                    Reviewing the current color tokens. We need to consolidate the tertiary and error states. Also, check the typography hierarchy on mobile—H1 might be too large on smaller viewports.
+                                </p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                        Yesterday
+                                    </span>
+<div class="flex gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+</div>
+</div>
+</a>
+<!-- Note Card 3 -->
+<a class="block bg-surface-container rounded-xl p-5 border border-outline-variant/10 hover:border-outline-variant/50 hover:bg-surface-container-high transition-all duration-200 group hover:-translate-y-[1px]" href="#">
+<div class="flex justify-between items-start mb-3">
+<h4 class="font-h3 text-h3 font-medium text-on-surface line-clamp-1 group-hover:text-primary transition-colors">Client Sync: Omega Corp</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4 h-[48px]">
+                                    Meeting notes from the kickoff. They are looking for a complete overhaul of their internal tooling. High priority on data density and quick navigation. Follow up with a proposal by EOW.
+                                </p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                        Oct 12, 2023
+                                    </span>
+<div class="flex gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+</div>
+</div>
+</a>
+<!-- Create New Note CTA Card -->
+<a class="block bg-surface-container-low rounded-xl p-5 border-2 border-dashed border-outline-variant/30 hover:border-primary/50 hover:bg-surface-container transition-all duration-200 group flex flex-col items-center justify-center text-center min-h-[180px]" href="#">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-3 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">add</span>
+</div>
+<h4 class="font-h3 text-h3 font-medium text-on-surface group-hover:text-primary transition-colors">Create New Note</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Start writing or use AI templates</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

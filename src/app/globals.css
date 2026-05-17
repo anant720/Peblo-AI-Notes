@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ========================================
+   THEME — Material Design 3 tokens
+   Stitch color system for dark mode
+   ======================================== */
+@theme {
+  --color-background: #15121b;
+  --color-surface: #15121b;
+  --color-surface-dim: #15121b;
+  --color-surface-bright: #3b3742;
+  --color-surface-container-lowest: #0f0d15;
+  --color-surface-container-low: #1d1a23;
+  --color-surface-container: #211e27;
+  --color-surface-container-high: #2c2832;
+  --color-surface-container-highest: #37333d;
+  --color-surface-variant: #37333d;
+  --color-on-background: #e7e0ed;
+  --color-on-surface: #e7e0ed;
+  --color-on-surface-variant: #cbc3d7;
+  --color-outline: #958ea0;
+  --color-outline-variant: #494454;
+  --color-primary: #d0bcff;
+  --color-on-primary: #3c0091;
+  --color-primary-container: #a078ff;
+  --color-on-primary-container: #340080;
+  --color-primary-fixed: #e9ddff;
+  --color-primary-fixed-dim: #d0bcff;
+  --color-inverse-primary: #6d3bd7;
+  --color-secondary: #ffb0cd;
+  --color-on-secondary: #640039;
+  --color-secondary-container: #aa0266;
+  --color-on-secondary-container: #ffbad3;
+  --color-secondary-fixed: #ffd9e4;
+  --color-secondary-fixed-dim: #ffb0cd;
+  --color-tertiary: #4cd7f6;
+  --color-tertiary-container: #009eb9;
+  --color-tertiary-fixed: #acedff;
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-inverse-surface: #e7e0ed;
+  --color-inverse-on-surface: #322f39;
+
+  /* Spacing */
+  --spacing-sidebar_width: 260px;
+  --spacing-container_max: 1200px;
+
+  /* Font sizes */
+  --font-size-display: 48px;
+  --font-size-h1: 32px;
+  --font-size-h2: 24px;
+  --font-size-h3: 18px;
+  --font-size-body-lg: 16px;
+  --font-size-body-md: 14px;
+  --font-size-body-sm: 12px;
+  --font-size-label-md: 14px;
+  --font-size-label-sm: 12px;
+}
+
+/* ========================================
+   BASE
+   ======================================== */
+body {
+  font-family: var(--font-inter, "Inter"), -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #15121b;
+  color: #e7e0ed;
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+.custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #37333d; border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #494454; }
+
+/* ========================================
+   AUTH GLOW EFFECT
+   ======================================== */
+.glow-bg {
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.25), transparent 60%);
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}

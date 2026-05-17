@@ -1,0 +1,81 @@
+// Prisma schema for MongoDB
+// https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  email        String        @unique
+  passwordHash String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  notes        Note[]
+  tags         Tag[]
+  activityLogs ActivityLog[]
+
+  @@map("users")
+}
+
+model Note {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @db.ObjectId
+  title      String   @default("Untitled")
+  content    String   @default("")
+  category   String?
+  isArchived Boolean  @default(false)
+  tagNames   String[] @default([])
+  isPublic   Boolean  @default(false)
+  shareId    String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tagIds     String[] @db.ObjectId
+  tags       Tag[]    @relation(fields: [tagIds], references: [id])
+  aiLogs     AiLog[]
+
+  @@map("notes")
+}
+
+model Tag {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  userId  String   @db.ObjectId
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  noteIds String[] @db.ObjectId
+  notes   Note[]   @relation(fields: [noteIds], references: [id])
+
+  @@unique([name, userId])
+  @@map("tags")
+}
+
+model AiLog {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  noteId         String   @db.ObjectId
+  summary        String?
+  actionItems    String[]
+  suggestedTitle String?
+  tokensUsed     Int?
+  createdAt      DateTime @default(now())
+  note           Note     @relation(fields: [noteId], references: [id], onDelete: Cascade)
+
+  @@map("ai_logs")
+}
+
+model ActivityLog {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @db.ObjectId
+  actionType String
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("activity_logs")
+}

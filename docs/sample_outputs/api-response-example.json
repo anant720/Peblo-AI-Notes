@@ -1,0 +1,19 @@
+{
+  "note": {
+    "id": "6a0922cfcef7c5efa25bd8b9",
+    "userId": "6a09229acef7c5efa25bd8b8",
+    "title": "Project Planning Notes",
+    "content": "Discussed the new feature roadmap for Q3. We need to focus on AI integrations and scaling the backend. John will lead the API design. Sarah will take the frontend mockups. Meeting scheduled for next Tuesday to review progress.",
+    "category": "Work",
+    "isArchived": false,
+    "tagNames": [
+      "planning",
+      "q3",
+      "roadmap"
+    ],
+    "isPublic": true,
+    "shareId": "382f95e9-46f5-4879-b9c1-53ad673a7c06",
+    "createdAt": "2026-05-16T14:30:00.000Z",
+    "updatedAt": "2026-05-17T09:15:22.000Z"
+  }
+}

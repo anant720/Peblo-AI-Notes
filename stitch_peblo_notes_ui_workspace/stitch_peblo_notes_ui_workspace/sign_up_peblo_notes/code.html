@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Signup - Peblo Notes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#acedff",
+                      "secondary-fixed-dim": "#ffb0cd",
+                      "on-surface-variant": "#cbc3d7",
+                      "on-tertiary": "#003640",
+                      "on-secondary-fixed-variant": "#8c0053",
+                      "tertiary": "#4cd7f6",
+                      "inverse-surface": "#e7e0ed",
+                      "surface-dim": "#15121b",
+                      "secondary": "#ffb0cd",
+                      "error": "#ffb4ab",
+                      "on-background": "#e7e0ed",
+                      "secondary-fixed": "#ffd9e4",
+                      "primary-container": "#a078ff",
+                      "on-primary-container": "#340080",
+                      "tertiary-container": "#009eb9",
+                      "on-primary-fixed-variant": "#5516be",
+                      "background": "#15121b",
+                      "on-surface": "#e7e0ed",
+                      "surface-container": "#211e27",
+                      "primary": "#d0bcff",
+                      "on-tertiary-fixed": "#001f26",
+                      "on-secondary": "#640039",
+                      "primary-fixed": "#e9ddff",
+                      "surface-variant": "#37333d",
+                      "inverse-primary": "#6d3bd7",
+                      "surface-container-low": "#1d1a23",
+                      "on-primary": "#3c0091",
+                      "surface-container-highest": "#37333d",
+                      "surface": "#15121b",
+                      "secondary-container": "#aa0266",
+                      "surface-container-lowest": "#0f0d15",
+                      "on-error": "#690005",
+                      "surface-bright": "#3b3742",
+                      "primary-fixed-dim": "#d0bcff",
+                      "surface-tint": "#d0bcff",
+                      "outline": "#958ea0",
+                      "surface-container-high": "#2c2832",
+                      "outline-variant": "#494454",
+                      "tertiary-fixed-dim": "#4cd7f6",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#ffbad3",
+                      "on-tertiary-container": "#002f38",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#3e0022",
+                      "on-primary-fixed": "#23005c",
+                      "inverse-on-surface": "#322f39",
+                      "on-tertiary-fixed-variant": "#004e5c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "sm": "0.5rem",
+                      "container_max": "1200px",
+                      "lg": "1.5rem",
+                      "xl": "2.5rem",
+                      "md": "1rem",
+                      "xs": "0.25rem",
+                      "sidebar_width": "260px"
+              },
+              "fontFamily": {
+                      "h1-mobile": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "h1": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "display": ["Inter"],
+                      "h2": ["Inter"],
+                      "h3": ["Inter"],
+                      "mono": ["JetBrains Mono"],
+                      "label-md": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "h1-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "h3": ["18px", {"lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600"}],
+                      "mono": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0f;
+            color: #e7e0ed;
+        }
+        .bg-elevated {
+            background-color: #1a1a24;
+        }
+        .input-glow:focus {
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+            border-color: #d0bcff;
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #a078ff 0%, #6d3bd7 100%);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-gradient:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(10, 10, 15, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden font-body-md text-body-md antialiased">
+<!-- Ambient Background Glow -->
+<div class="ambient-glow"></div>
+<!-- Main Content Container -->
+<main class="w-full max-w-[440px] px-md relative z-10">
+<!-- Brand Header -->
+<div class="text-center mb-xl">
+<h1 class="font-display text-display text-primary mb-sm tracking-tight">Peblo Notes</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Create your AI workspace.</p>
+</div>
+<!-- Signup Card -->
+<div class="bg-elevated rounded-2xl border border-outline-variant/30 p-lg md:p-xl shadow-2xl backdrop-blur-xl">
+<form action="#" class="space-y-lg" method="POST">
+<!-- Full Name Field -->
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant block" for="fullname">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant select-none" style="font-size: 20px;">person</span>
+<input class="w-full bg-[#111118] border border-outline-variant/50 rounded-lg py-2.5 pl-10 pr-4 font-body-md text-body-md text-on-surface placeholder:text-outline-variant/50 focus:outline-none input-glow transition-all" id="fullname" name="fullname" placeholder="Jane Doe" required="" type="text"/>
+</div>
+</div>
+<!-- Email Field -->
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant block" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant select-none" style="font-size: 20px;">mail</span>
+<input class="w-full bg-[#111118] border border-outline-variant/50 rounded-lg py-2.5 pl-10 pr-4 font-body-md text-body-md text-on-surface placeholder:text-outline-variant/50 focus:outline-none input-glow transition-all" id="email" name="email" placeholder="jane@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant block" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant select-none" style="font-size: 20px;">lock</span>
+<input class="w-full bg-[#111118] border border-outline-variant/50 rounded-lg py-2.5 pl-10 pr-4 font-body-md text-body-md text-on-surface placeholder:text-outline-variant/50 focus:outline-none input-glow transition-all" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<p class="font-body-sm text-body-sm text-outline-variant mt-1">Must be at least 8 characters.</p>
+</div>
+<!-- Submit Button -->
+<button class="w-full btn-gradient text-white font-label-md text-label-md py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 mt-xl" type="submit">
+                    Create account
+                    <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+</button>
+<!-- Terms Disclaimer -->
+<p class="text-center font-body-sm text-body-sm text-outline-variant mt-sm">
+                    By creating an account, you agree to our <a class="text-primary hover:text-primary-fixed transition-colors underline decoration-primary/30 underline-offset-2" href="#">Terms of Service</a>.
+                </p>
+</form>
+</div>
+<!-- Footer Link -->
+<div class="text-center mt-lg">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Already have an account? 
+                <a class="text-primary hover:text-primary-fixed font-label-md text-label-md transition-colors ml-1" href="/login">Log in instead</a>
+</p>
+</div>
+</main>
+</body></html>

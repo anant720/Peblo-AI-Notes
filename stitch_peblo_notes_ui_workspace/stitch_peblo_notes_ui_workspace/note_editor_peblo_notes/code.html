@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Peblo Notes - Note Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#acedff",
+                        "secondary-fixed-dim": "#ffb0cd",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-tertiary": "#003640",
+                        "on-secondary-fixed-variant": "#8c0053",
+                        "tertiary": "#4cd7f6",
+                        "inverse-surface": "#e7e0ed",
+                        "surface-dim": "#15121b",
+                        "secondary": "#ffb0cd",
+                        "error": "#ffb4ab",
+                        "on-background": "#e7e0ed",
+                        "secondary-fixed": "#ffd9e4",
+                        "primary-container": "#a078ff",
+                        "on-primary-container": "#340080",
+                        "tertiary-container": "#009eb9",
+                        "on-primary-fixed-variant": "#5516be",
+                        "background": "#15121b",
+                        "on-surface": "#e7e0ed",
+                        "surface-container": "#211e27",
+                        "primary": "#d0bcff",
+                        "on-tertiary-fixed": "#001f26",
+                        "on-secondary": "#640039",
+                        "primary-fixed": "#e9ddff",
+                        "surface-variant": "#37333d",
+                        "inverse-primary": "#6d3bd7",
+                        "surface-container-low": "#1d1a23",
+                        "on-primary": "#3c0091",
+                        "surface-container-highest": "#37333d",
+                        "surface": "#15121b",
+                        "secondary-container": "#aa0266",
+                        "surface-container-lowest": "#0f0d15",
+                        "on-error": "#690005",
+                        "surface-bright": "#3b3742",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-tint": "#d0bcff",
+                        "outline": "#958ea0",
+                        "surface-container-high": "#2c2832",
+                        "outline-variant": "#494454",
+                        "tertiary-fixed-dim": "#4cd7f6",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#ffbad3",
+                        "on-tertiary-container": "#002f38",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#3e0022",
+                        "on-primary-fixed": "#23005c",
+                        "inverse-on-surface": "#322f39",
+                        "on-tertiary-fixed-variant": "#004e5c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "sm": "0.5rem",
+                        "container_max": "1200px",
+                        "lg": "1.5rem",
+                        "xl": "2.5rem",
+                        "md": "1rem",
+                        "xs": "0.25rem",
+                        "sidebar_width": "260px"
+                    },
+                    "fontFamily": {
+                        "h1-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display": ["Inter"],
+                        "h2": ["Inter"],
+                        "h3": ["Inter"],
+                        "mono": ["JetBrains Mono"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h1-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "h1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "h3": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }],
+                        "mono": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0f;
+            color: #e7e0ed;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Scrollbar styles */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #37333d; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #494454; }
+
+        /* Custom Input Placeholders */
+        ::placeholder { color: #494454; opacity: 1; }
+
+        /* Gradient Text Utility */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(135deg, #d0bcff, #4cd7f6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-hidden">
+<!-- Sidebar Component (from JSON) -->
+<nav class="hidden md:flex flex-col h-full py-lg px-md bg-surface-container-low dark:bg-surface-container-low fixed left-0 top-0 h-full w-sidebar_width border-r border-outline-variant/20 z-40">
+<!-- Header -->
+<div class="flex items-center gap-3 mb-xl">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-tertiary flex items-center justify-center text-on-primary font-bold shadow-[0_0_15px_rgba(208,188,255,0.3)]">
+                P
+            </div>
+<div>
+<h1 class="font-h2 text-h2 font-black text-primary dark:text-primary-fixed leading-tight">Peblo Notes</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">AI Workspace</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="mb-lg w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary-container to-inverse-primary hover:opacity-90 text-white font-label-md text-label-md py-2 px-4 rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(109,59,215,0.2)] active:scale-95">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Note
+        </button>
+<!-- Navigation Tabs -->
+<div class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                Dashboard
+            </a>
+<!-- Active Tab: All Notes -->
+<a class="flex items-center gap-3 px-4 py-2 bg-primary/10 text-primary border-l-2 border-primary rounded-r-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">description</span>
+                All Notes
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]">search</span>
+                Search
+            </a>
+</div>
+<!-- Footer Tabs -->
+<div class="flex flex-col gap-1 mt-auto pt-lg border-t border-outline-variant/10">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 hover:bg-surface-container-high transition-colors duration-200 rounded-lg active:scale-95 transition-transform font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+                Help
+            </a>
+</div>
+</nav>
+<!-- Main Workspace Area -->
+<main class="ml-0 md:ml-sidebar_width flex-1 flex flex-row h-full relative">
+<!-- Editor Column -->
+<div class="flex-1 flex flex-col h-full max-w-container_max mx-auto relative border-r border-outline-variant/10">
+<!-- Editor Header (Sticky) -->
+<header class="sticky top-0 z-30 flex justify-between items-center h-16 px-lg bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-outline-variant/10">
+<!-- Mobile Menu Button (Visible only on small screens) -->
+<button class="md:hidden text-on-surface-variant hover:text-on-surface mr-3">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Status -->
+<div class="flex items-center gap-2 text-tertiary-fixed-dim font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Saved at 10:32</span>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-sm">
+<button class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-label-md transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">archive</span>
+                        Archive
+                    </button>
+<button class="px-4 py-1.5 bg-surface-container-high hover:bg-surface-bright border border-outline-variant/30 text-primary-fixed rounded-lg font-label-md text-label-md transition-colors flex items-center gap-2 shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
+<span class="text-gradient">✨</span>
+                        AI Assist
+                    </button>
+</div>
+</header>
+<!-- Editor Body (Scrollable) -->
+<div class="flex-1 overflow-y-auto px-lg py-xl lg:px-xl">
+<div class="max-w-[800px] mx-auto h-full flex flex-col">
+<!-- Title Input -->
+<input class="w-full bg-transparent border-none outline-none focus:ring-0 p-0 mb-6 font-display text-display text-on-surface placeholder:text-outline-variant bg-[#0a0a0f]" placeholder="Note Title" type="text" value="Project: Projectile Launch"/>
+<!-- Textarea Content (Simulated for layout) -->
+<textarea class="w-full flex-1 bg-transparent border-none outline-none focus:ring-0 p-0 resize-none font-body-lg text-body-lg text-on-surface-variant leading-relaxed bg-[#0a0a0f] placeholder:text-outline-variant/50" placeholder="Start typing... or press '/' for commands">The objective of this phase is to establish the core architecture for the new predictive engine. We need to ensure that the data pipelines are robust enough to handle the anticipated load during peak hours.
+
+Key Considerations:
+1. Latency requirements must be under 50ms for the 99th percentile.
+2. The caching layer should utilize Redis clusters distributed across three zones.
+3. Fallback mechanisms need to be documented and tested by Q3.
+
+Initial tests show promising results, but we need to address the bottleneck in the aggregation service before moving to staging.
+                    </textarea>
+</div>
+</div>
+<!-- Editor Footer (Sticky Bottom) -->
+<footer class="sticky bottom-0 z-30 flex justify-between items-center py-sm px-lg bg-[#0a0a0f]/95 backdrop-blur-xl border-t border-outline-variant/10">
+<!-- Tags Area -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
+<span class="material-symbols-outlined text-outline text-[18px]">label</span>
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant/30 rounded-md font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                        Architecture
+                        <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-on-surface">close</span>
+</span>
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant/30 rounded-md font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                        Draft
+                        <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-on-surface">close</span>
+</span>
+<input class="bg-transparent border-none text-sm p-0 w-24 focus:ring-0 font-body-sm text-body-sm text-on-surface placeholder:text-outline-variant" placeholder="Add tag..." type="text"/>
+</div>
+<!-- Share Controls -->
+<div class="flex items-center gap-4 shrink-0">
+<label class="flex items-center gap-2 cursor-pointer">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Make Public</span>
+<div class="relative">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</label>
+<div class="h-4 w-px bg-outline-variant/30"></div>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">link</span>
+                        Copy Link
+                    </button>
+</div>
+</footer>
+</div>
+<!-- AI Assist Panel (Right Sidebar) -->
+<aside class="hidden xl:flex flex-col w-[340px] bg-[#111118] border-l border-outline-variant/10 h-full overflow-hidden shrink-0">
+<!-- Panel Header -->
+<div class="flex items-center justify-between px-md py-4 border-b border-outline-variant/10">
+<h3 class="font-h3 text-h3 font-bold text-on-surface flex items-center gap-2">
+<span class="text-gradient">⚡</span> Peblo AI
+                </h3>
+<button class="text-outline hover:text-on-surface transition-colors p-1 rounded-md hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-md flex flex-col gap-xl">
+<!-- Quick Actions Grid -->
+<div class="grid grid-cols-2 gap-2">
+<button class="col-span-2 bg-gradient-to-r from-primary-container/20 to-tertiary-container/20 border border-primary/30 hover:border-primary/60 rounded-xl p-3 flex flex-col items-center justify-center gap-2 transition-all group shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">auto_awesome</span>
+<span class="font-label-md text-label-md text-primary-fixed font-semibold">Generate Everything</span>
+</button>
+<button class="bg-[#1a1a24] hover:bg-[#22222e] hover:-translate-y-[1px] border border-outline-variant/10 rounded-xl p-3 flex flex-col items-center justify-center gap-1 transition-all">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">summarize</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Summary</span>
+</button>
+<button class="bg-[#1a1a24] hover:bg-[#22222e] hover:-translate-y-[1px] border border-outline-variant/10 rounded-xl p-3 flex flex-col items-center justify-center gap-1 transition-all">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">title</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Suggest Title</span>
+</button>
+<button class="col-span-2 bg-[#1a1a24] hover:bg-[#22222e] hover:-translate-y-[1px] border border-outline-variant/10 rounded-xl p-3 flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-outline text-[20px]">checklist</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Extract Tasks</span>
+</button>
+</div>
+<!-- Suggested Context/Results -->
+<div class="flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-outline-variant uppercase tracking-wider px-1">AI Suggestions</h4>
+<!-- Suggestion Card 1 -->
+<div class="bg-[#1a1a24] border border-outline-variant/10 hover:border-outline-variant/30 rounded-xl p-4 flex flex-col gap-2 relative overflow-hidden group transition-all cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-primary to-secondary opacity-70 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-primary-fixed">Executive Summary</span>
+<button class="text-outline opacity-0 group-hover:opacity-100 transition-opacity hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+                            The project focuses on building a low-latency (under 50ms) predictive engine utilizing Redis clusters and requires documented fallback mechanisms by Q3.
+                        </p>
+</div>
+<!-- Suggestion Card 2 -->
+<div class="bg-[#1a1a24] border border-outline-variant/10 hover:border-outline-variant/30 rounded-xl p-4 flex flex-col gap-2 relative overflow-hidden group transition-all cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-tertiary to-primary opacity-70 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-tertiary-fixed">Extracted Tasks (3)</span>
+<button class="text-outline opacity-0 group-hover:opacity-100 transition-opacity hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+</button>
+</div>
+<ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1 list-disc pl-4 marker:text-outline-variant">
+<li>Verify 50ms latency for 99th percentile</li>
+<li>Setup Redis clusters across 3 zones</li>
+<li>Document fallback mechanisms by Q3</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Prompt Input (Bottom of panel) -->
+<div class="p-md border-t border-outline-variant/10 bg-[#111118]">
+<div class="relative flex items-center bg-[#1a1a24] rounded-xl border border-outline-variant/20 focus-within:border-primary/50 focus-within:shadow-[0_0_0_2px_rgba(139,92,246,0.2)] transition-all">
+<span class="material-symbols-outlined text-outline pl-3 text-[20px]">colors_spark</span>
+<input class="w-full bg-transparent border-none outline-none focus:ring-0 py-2.5 px-2 font-body-sm text-body-sm text-on-surface placeholder:text-outline-variant" placeholder="Ask AI..." type="text"/>
+<button class="pr-3 text-primary hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</aside>
+</main>
+</body></html>
