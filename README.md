@@ -8,7 +8,7 @@ Built as a take-home challenge for **Peblo** — a seed-funded ed-tech startup b
 
 ## Live Demo
 
-> _Deploy in progress — run locally using the setup instructions below._
+> **🚀 [View Live Deployment](https://peblo-ai-notes-psi.vercel.app/)**
 
 ---
 
@@ -271,12 +271,10 @@ Open [http://localhost:3000](http://localhost:3000) — you'll see the landing p
 
 ## What I'd Add Next
 
-- **Markdown preview** toggle in the editor
 - **Real-time collaboration** via WebSockets or Liveblocks
 - **Email notifications** for shared note comments
-- **Automated tests** (Playwright E2E + Vitest unit)
-- **Rate limiting** on AI endpoints
-- **Vercel deployment** with production MongoDB Atlas
+- **Advanced folder structures**
+- **Mobile Native App** (React Native wrapper)
 
 ---
 
